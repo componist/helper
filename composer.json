@@ -1,0 +1,22 @@
+{
+    "name": "componist/helper",
+    "autoload": {
+        "psr-4": {
+            "Componist\\Helper\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Reinhold-Jesse",
+            "email": "reinhold.jesse@componist.de"
+        }
+    ],
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Componist\\Helper\\HelperServiceProvider"
+            ]
+        }
+    }
+}
