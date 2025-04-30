@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 if (env('APP_DEBUG') === true) {
-    Route::prefix('helper')->name('miniHelper.')->group(function () {
+    Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->prefix('helper')->name('miniHelper.')->group(function () {
         Route::view('/', 'miniHelper::page.helper')->name('index');
         Route::get('/mode', \Componist\Helper\Livewire\Model::class)->name('model');
         Route::get('/validation', \Componist\Helper\Livewire\Validation::class)->name('validation');
@@ -15,5 +15,11 @@ if (env('APP_DEBUG') === true) {
         Route::view('grug', 'miniHelper::page.grud')->name('grud');
         Route::view('rest-api', 'miniHelper::page.rest-api')->name('rest-api');
         Route::view('pest-exampels', 'miniHelper::page.pest-exampels')->name('pest-exampels');
+
+        Route::get('routes', function () {
+            $routeCollection = Route::getRoutes();
+
+            return view('miniHelper::page.routes', compact('routeCollection'));
+        })->name('routes');
     });
 }

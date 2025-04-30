@@ -55,6 +55,7 @@
             <li><a href="{{ route('miniHelper.create.view') }}" wire:navigate>Create View</a></li>
             <li><a href="{{ route('miniHelper.database.schema') }}" wire:navigate>Database Schema</a></li>
             <li><a href="{{ route('miniHelper.pest-exampels') }}" wire:navigate>Pest Examples</a></li>
+            <li><a href="{{ route('miniHelper.routes') }}" wire:navigate>Route Liste</a></li>
         </ul>
     </div>
 

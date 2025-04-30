@@ -1,22 +1,30 @@
 {
     "name": "componist/helper",
+    "description": "....coming soon",
+    "keywords": [],
+    "homepage": "",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Componist Developer",
+            "email": "info@componist.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {},
+    "require-dev": {},
     "autoload": {
         "psr-4": {
             "Componist\\Helper\\": "src/"
         }
     },
-    "authors": [
-        {
-            "name": "Reinhold-Jesse",
-            "email": "reinhold.jesse@componist.de"
-        }
-    ],
-    "require": {},
     "extra": {
         "laravel": {
             "providers": [
                 "Componist\\Helper\\HelperServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
