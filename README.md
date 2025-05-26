@@ -6,6 +6,9 @@
 - [x] get database schema
 - [x] snippest for GRUD, PEST
 - [ ] create blueprint yaml from database
+- [ ] create Laravel Modal from database schema
+- [ ] edit database schema / create / delete/ reorder columns
+- [ ] routing testing
 
 
 
