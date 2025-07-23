@@ -2,12 +2,15 @@
 
 namespace Componist\Helper\Livewire\Create;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 
 class Migration extends Component
 {
+    public ?string $url = null;
+
     /** @var array<mixed> */
     public array $table_list = [];
 
@@ -124,27 +127,128 @@ class Migration extends Component
                 $this->migration['fields'][] = $string;
             }
 
-            $data = '';
+            $this->createStringFromFields();
+            
+            $this->setFields();
+        }
+    }
 
-            foreach ($this->migration['fields'] as $loop => $value) {
+    public function getApiData(): void
+    {
+        $this->migration['table'] =  null;
+        $this->migration['fields'] = [];
+        $this->migration['string'] = null;
 
-                if ($loop === array_key_first($this->migration['fields'])) {
-                    $data .= $value."\r\n";
-                } else {
-                    if ($loop === array_key_last($this->migration['fields'])) {
-                        $data .= "\t\t\t".$value;
-                    } else {
-                        $data .= "\t\t\t".$value."\r\n";
-                    }
+       $response = Http::withHeaders([
+            'Accept' => 'application/json',
+        ])->get($this->url);
+
+
+        if($response->successful())
+        {
+            $this->table = '#you_table_name#';
+
+            $this->getStubContent();
+
+            $this->setTableName();
+            
+            $result = json_decode($response->body(),true);
+
+            //  dump($result);
+
+            
+            $check = [];
+            // chek if has all multi array
+            foreach($result as $v){
+                if(is_array($v)){
+                    $check[] = true;
+                }else{
+                    $check[] = false;
                 }
             }
 
-            $this->migration['string'] = $data;
+            // dump($check);
 
-            $this->setFields();
+            if(array_product($check))
+            {
+                //dump('its a multi dimension array');
+                $result = $result[0];
+            }else
+            {
+                //dump('its a single dimension');
+                $result = $result;
+            }
 
+            foreach($result as $key => $value)
+            {
+                $temp = '$table->';
+
+                if(is_int($value)){
+                    $temp .= 'integer(\''.$key.'\')';
+                }
+
+                if($value === null){
+                   $temp .= 'string(\''.$key.'\')';
+                }
+
+                if(is_string($value)){
+                    if(strlen($value) < 255){
+                        $temp .= 'string(\''.$key.'\')';
+                    }else{
+                        $temp .= 'text(\''.$key.'\')';
+                    }
+                }
+
+                if(is_array($value)){
+                    $temp .= 'json(\''.$key.'\')';
+                }
+
+                if(is_bool($value)){
+                   $temp .= 'boolean(\''.$key.'\')';
+                }
+
+                if(is_float($value)){
+                   $temp .= 'float(\''.$key.'\',8,2)';
+                }
+
+                if($value === null){
+                   $temp .='->nullable()';
+                }
+
+                $temp .= ';';
+
+                $this->migration['fields'][] = $temp;
+             }
+
+             $this->createStringFromFields();
+
+             
+            //  dump($this->migration);
+
+             $this->setFields();
         }
     }
+
+    private function createStringFromFields(): void
+    {
+         $data = '';
+         foreach ($this->migration['fields'] as $loop => $value) {
+
+            if ($loop === array_key_first($this->migration['fields'])) {
+                $data .= $value."\r\n";
+            } else {
+                if ($loop === array_key_last($this->migration['fields'])) {
+                    $data .= "\t\t\t".$value;
+                } else {
+                    $data .= "\t\t\t".$value."\r\n";
+                }
+            }
+        }
+
+        $this->migration['string'] = $data;
+    }
+
+    
 
     private function getTables(): void
     {

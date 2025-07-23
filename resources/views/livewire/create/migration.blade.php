@@ -1,14 +1,34 @@
 <div>
     <div class="container px-3 mx-auto py-7">
-        <div class="mb-14">
-            <label class="block mb-3">Tabelle</label>
-            <select size="1" wire:model.live.debounce.500ms="table" wire:change='getTable($event.target.value)'
-                class="px-5 py-2 bg-gray-100 rounded-md">
-                <option value=""></option>
-                @foreach ($table_list as $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </select>
+        <div class="grid grid-cols-1 gap-5 mb-14">
+            <div>
+                <label class="block mb-3">Tabelle</label>
+                <select size="1" wire:model.live.debounce.500ms="table" wire:change='getTable($event.target.value)'
+                    class="px-5 py-2 bg-gray-100 rounded-md">
+                    <option value=""></option>
+                    @foreach ($table_list as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="flex items-end gap-5">
+                <div class="w-full">
+                    <label class="block mb-3">API URL</label>
+                    <input type="text" wire:model.live='url' class="w-full px-5 py-2 bg-gray-100 rounded-md" />
+                </div>
+
+                @if ($url)
+                    <button type="button" @click.prevent="$wire.getApiData"
+                        class="px-5 py-2 text-white bg-teal-500 rounded-md hover:bg-teal-600">
+                        CALL
+                    </button>
+                @else
+                    <button type="button" disabled class="px-5 py-2 text-white rounded-md bg-slate-300">
+                        CALL
+                    </button>
+                @endif
+
+            </div>
         </div>
 
         <div>

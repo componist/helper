@@ -33,6 +33,7 @@ return [
         'create.migration' => \Componist\Helper\Livewire\Create\Migration::class,
         'create.view' => \Componist\Helper\Livewire\Create\View::class,
         'database-schema' => \Componist\Helper\Livewire\DatabaseSchema::class,
+        'root-components.index' => \Componist\Helper\Livewire\RootComponents\Index::class,
     ],
 
     /*

@@ -13,6 +13,7 @@ if (env('APP_DEBUG') === true) {
         Route::get('/create/migration', \Componist\Helper\Livewire\Create\Migration::class)->name('create.migration');
         Route::get('/create/view', \Componist\Helper\Livewire\Create\View::class)->name('create.view');
         Route::get('database-schema', \Componist\Helper\Livewire\DatabaseSchema::class)->name('database.schema');
+        Route::get('icons',\Componist\Helper\Livewire\RootComponents\Index::class)->name('root.icons');
 
         Route::view('grug', 'miniHelper::page.grud')->name('grud');
         Route::view('rest-api', 'miniHelper::page.rest-api')->name('rest-api');
