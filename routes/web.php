@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 if (env('APP_DEBUG') === true) {
     Route::
     //middleware(['auth','verified'])->
-    prefix('helper')->name('miniHelper.')->group(function () {
+    prefix('helper')->name('componist.mini-helper.')->group(function () {
         Route::view('/', 'miniHelper::page.helper')->name('index');
         Route::get('/mode', \Componist\Helper\Livewire\Model::class)->name('model');
         Route::get('/validation', \Componist\Helper\Livewire\Validation::class)->name('validation');

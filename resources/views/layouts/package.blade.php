@@ -46,17 +46,17 @@
 
     <div class="container mx-auto mb-7">
         <ul class="flex flex-wrap gap-5 py-5">
-            <li><a href="{{ route('miniHelper.model') }}" wire:navigate>Model</a></li>
-            <li><a href="{{ route('miniHelper.validation') }}" wire:navigate>Validation</a></li>
-            <li><a href="{{ route('miniHelper.grud') }}" wire:navigate>GRUD</a></li>
-            <li><a href="{{ route('miniHelper.rest-api') }}" wire:navigate>REST API</a></li>
-            <li><a href="{{ route('miniHelper.search.string') }}" wire:navigate>Search String</a></li>
-            <li><a href="{{ route('miniHelper.create.migration') }}" wire:navigate>Create Migration</a></li>
-            <li><a href="{{ route('miniHelper.create.view') }}" wire:navigate>Create View</a></li>
-            <li><a href="{{ route('miniHelper.database.schema') }}" wire:navigate>Database Schema</a></li>
-            <li><a href="{{ route('miniHelper.pest-exampels') }}" wire:navigate>Pest Examples</a></li>
-            <li><a href="{{ route('miniHelper.routes') }}" wire:navigate>Route Liste</a></li>
-            <li><a href="{{ route('miniHelper.root.icons') }}" wire:navigate>Root Icons</a></li>
+            <li><a href="{{ route('componist.mini-helper.model') }}" wire:navigate>Model</a></li>
+            <li><a href="{{ route('componist.mini-helper.validation') }}" wire:navigate>Validation</a></li>
+            <li><a href="{{ route('componist.mini-helper.grud') }}" wire:navigate>GRUD</a></li>
+            <li><a href="{{ route('componist.mini-helper.rest-api') }}" wire:navigate>REST API</a></li>
+            <li><a href="{{ route('componist.mini-helper.search.string') }}" wire:navigate>Search String</a></li>
+            <li><a href="{{ route('componist.mini-helper.create.migration') }}" wire:navigate>Create Migration</a></li>
+            <li><a href="{{ route('componist.mini-helper.create.view') }}" wire:navigate>Create View</a></li>
+            <li><a href="{{ route('componist.mini-helper.database.schema') }}" wire:navigate>Database Schema</a></li>
+            <li><a href="{{ route('componist.mini-helper.pest-exampels') }}" wire:navigate>Pest Examples</a></li>
+            <li><a href="{{ route('componist.mini-helper.routes') }}" wire:navigate>Route Liste</a></li>
+            <li><a href="{{ route('componist.mini-helper.root.icons') }}" wire:navigate>Root Icons</a></li>
         </ul>
     </div>
 
