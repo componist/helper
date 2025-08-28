@@ -30,7 +30,9 @@
 
 
     <script src="https://cdn.tailwindcss.com"></script>
-    {{-- <script defer src="https://unpkg.com/alpinejs@3.10.4/dist/cdn.min.js"></script> --}}
+    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
+
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
@@ -54,9 +56,13 @@
             <li><a href="{{ route('componist.mini-helper.create.migration') }}" wire:navigate>Create Migration</a></li>
             <li><a href="{{ route('componist.mini-helper.create.view') }}" wire:navigate>Create View</a></li>
             <li><a href="{{ route('componist.mini-helper.database.schema') }}" wire:navigate>Database Schema</a></li>
+            <li><a href="{{ route('componist.mini-helper.database.tools') }}" wire:navigate>Database Tools</a></li>
             <li><a href="{{ route('componist.mini-helper.pest-exampels') }}" wire:navigate>Pest Examples</a></li>
             <li><a href="{{ route('componist.mini-helper.routes') }}" wire:navigate>Route Liste</a></li>
+            <li><a href="{{ route('componist.mini-helper.test.routes') }}" wire:navigate>Test Routes</a></li>
             <li><a href="{{ route('componist.mini-helper.root.icons') }}" wire:navigate>Root Icons</a></li>
+            <li><a href="{{ route('componist.mini-helper.crawler.route.json') }}" wire:navigate>Crawler Route Json</a>
+            </li>
         </ul>
     </div>
 

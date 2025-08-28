@@ -20,15 +20,14 @@ class Index extends Component
         // $this->path = base_path('packages/heco/core/resources/views/components/icon');
         // $this->prefix = 'core::';
 
-        if($this->path){
-            if(file_exists($this->path) && is_dir($this->path)){
-                if(count(scandir($this->path)) > 3){
+        if ($this->path) {
+            if (file_exists($this->path) && is_dir($this->path)) {
+                if (count(scandir($this->path)) > 3) {
                     $this->scanIconPath();
                 }
             }
         }
 
-        
     }
 
     public function render()
@@ -36,24 +35,24 @@ class Index extends Component
         $content = $this->iconListe;
 
         // dump($this->iconListe);
-        
-        return view('miniHelper::livewire.root-components.index',compact('content'))->layout('miniHelper::layouts.package');
+
+        return view('miniHelper::livewire.root-components.index', compact('content'))->layout('miniHelper::layouts.package');
     }
 
     public function scanIconPath(): void
     {
         $this->iconListe = [];
-         foreach(scandir($this->path) as $icon){
+        foreach (scandir($this->path) as $icon) {
 
-            if($icon != '..' && $icon != '.'){
-                $icon = str_replace('.blade.php','',$icon);
+            if ($icon != '..' && $icon != '.') {
+                $icon = str_replace('.blade.php', '', $icon);
 
-                if($this->prefix){
+                if ($this->prefix) {
                     $this->iconListe[] = $this->prefix.'icon.'.$icon;
-                }else{
+                } else {
                     $this->iconListe[] = 'icon.'.$icon;
                 }
-                
+
                 // dump($icon);
             }
         }

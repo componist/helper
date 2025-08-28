@@ -9,6 +9,9 @@
 - [ ] create Laravel Modal from database schema
 - [ ] edit database schema / create / delete/ reorder columns
 - [ ] routing testing
+- [x] clear or delete database
+- [ ] create robots.txt file
+- [ ] create sitemap file from all public routes
 
 
 

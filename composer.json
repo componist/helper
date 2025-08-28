@@ -12,7 +12,8 @@
         }
     ],
     "require": {
-        "livewire/livewire": "^3.0"
+        "livewire/livewire": "^3.0",
+        "symfony/dom-crawler": "^7.3"
     },
     "require-dev": {},
     "autoload": {

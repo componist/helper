@@ -1,13 +1,13 @@
 <?php
 
-namespace Componist\Helper\Livewire;
+namespace Componist\Helper\Livewire\Database;
 
 use Componist\Helper\Class\Color;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class DatabaseSchema extends Component
+class Schema extends Component
 {
     /** @var array<mixed> */
     public array $content = [];
@@ -30,7 +30,7 @@ class DatabaseSchema extends Component
 
     public function render(): View
     {
-        return view('miniHelper::livewire.database-schema')->layout('miniHelper::layouts.package');
+        return view('miniHelper::livewire.database.schema')->layout('miniHelper::layouts.package');
     }
 
     // private function relations()

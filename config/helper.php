@@ -32,8 +32,11 @@ return [
         'search.string-in-files' => \Componist\Helper\Livewire\Search\StringInFiles::class,
         'create.migration' => \Componist\Helper\Livewire\Create\Migration::class,
         'create.view' => \Componist\Helper\Livewire\Create\View::class,
-        'database-schema' => \Componist\Helper\Livewire\DatabaseSchema::class,
+        'database.schema' => \Componist\Helper\Livewire\Database\Schema::class,
         'root-components.index' => \Componist\Helper\Livewire\RootComponents\Index::class,
+        'database.tools' => \Componist\Helper\Livewire\Database\Tools::class,
+        'test.routes' => \Componist\Helper\Livewire\Test\Routes::class,
+        'crawler.routes-json' => \Componist\Helper\Livewire\Crawler\RoutesJson::class,
     ],
 
     /*
