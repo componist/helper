@@ -30,6 +30,11 @@
 
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Alpine Plugins -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Alpine Core -->
     {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
 
 
@@ -63,13 +68,18 @@
             <li><a href="{{ route('componist.mini-helper.root.icons') }}" wire:navigate>Root Icons</a></li>
             <li><a href="{{ route('componist.mini-helper.crawler.route.json') }}" wire:navigate>Crawler Route Json</a>
             </li>
+            <li><a href="{{ route('componist.mini-helper.artisan.list') }}" wire:navigate>Artisan Liste</a></li>
+
+            <li><a href="{{ route('componist.mini-helper.job.liste') }}" wire:navigate>Job Liste</a></li>
+
+
         </ul>
     </div>
 
 
     {{-- <div class="container p-5 mx-auto bg-white rounded-md shadow-sm"> --}}
     <!-- Page Content -->
-    <main class="">
+    <main class="mb-14">
         {{ $slot }}
     </main>
     {{-- </div> --}}

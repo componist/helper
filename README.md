@@ -11,7 +11,9 @@
 - [ ] routing testing
 - [x] clear or delete database
 - [ ] create robots.txt file
-- [ ] create sitemap file from all public routes
+- [x] create sitemap file from all public routes
+- [x] show all register commands
+- [ ] job liste with run job
 
 
 

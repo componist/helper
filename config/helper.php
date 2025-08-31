@@ -37,6 +37,8 @@ return [
         'database.tools' => \Componist\Helper\Livewire\Database\Tools::class,
         'test.routes' => \Componist\Helper\Livewire\Test\Routes::class,
         'crawler.routes-json' => \Componist\Helper\Livewire\Crawler\RoutesJson::class,
+        'artisan.liste' => \Componist\Helper\Livewire\Artisan\Liste::class,
+        'jobs.liste' => \Componist\Helper\Livewire\Jobs\Liste::class,
     ],
 
     /*

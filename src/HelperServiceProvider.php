@@ -2,10 +2,11 @@
 
 namespace Componist\Helper;
 
+use Livewire\Livewire;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Livewire\Livewire;
+use Componist\Helper\Commands\ClearStoragePublic;
 
 class HelperServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,11 @@ class HelperServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->mergeConfigFrom(__DIR__.'/../config/helper.php', 'configHelper');
+
+        $this->commands([
+            ClearStoragePublic::class,
+        ]);
+
 
         Route::group(['middleware' => ['web']], function () {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
