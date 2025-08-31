@@ -28,15 +28,16 @@
 
     @livewireStyles
 
-
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
 
     <!-- Alpine Plugins -->
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
-
-    <!-- Alpine Core -->
-    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
-
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
@@ -49,8 +50,34 @@
 
 </head>
 
-<body class="font-sans bg-gray-200">
+<body class="font-sans transition-colors duration-300 bg-slate-200 text-slate-600 dark:bg-slate-900 dark:text-slate-300"
+    x-data="{
+        isDark: document.documentElement.classList.contains('dark'),
+        toggle() {
+            this.isDark = !this.isDark;
+            document.documentElement.classList.toggle('dark', this.isDark);
+            localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
+        }
+    }">
 
+    <div>
+        <button @click.prevent="toggle()"
+            class="flex items-center gap-2 px-4 py-2 transition rounded-lg shadow bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700"
+            aria-label="Toggle Dark Mode">
+            <!-- Sun Icon -->
+            <svg x-show="!isDark" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m8.49-8.49h1M3.51 12H2.5m15.364 6.364l.707.707M5.636 5.636l-.707-.707m12.728 0l.707-.707M5.636 18.364l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+
+            <!-- Moon Icon -->
+            <svg x-cloak x-show="isDark" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
+            </svg>
+        </button>
+    </div>
     <div class="container mx-auto mb-7">
         <ul class="flex flex-wrap gap-5 py-5">
             <li><a href="{{ route('componist.mini-helper.model') }}" wire:navigate>Model</a></li>
