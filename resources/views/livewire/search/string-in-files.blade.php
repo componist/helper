@@ -1,8 +1,7 @@
 <div>
-    <div class="container p-5 mx-auto bg-white rounded-lg shadow-sm">
+    <div class="container mx-auto bg-white rounded-lg shadow-sm">
         <div class="flex gap-3 mb-7">
-            <input type="text" class="w-full px-5 py-2 bg-gray-100 rounded-md " placeholder="Search String"
-                wire:model.live="search" />
+            <x:miniHelper::form.input type="text" wire:model.live='search' placeholder="SEarch String" />
 
             <button type="button" wire:click="searchInFiles"
                 class="px-5 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600">Suchen</button>
@@ -15,7 +14,7 @@
                 @foreach ($founds as $found)
                     <li x-data="{ open: false }" class="">
                         <div @click.prevent="open = ! open"
-                            class="py-3  cursor-pointer hover:bg-gray-100 hover:text-gray-800">
+                            class="py-3 cursor-pointer hover:bg-gray-100 hover:text-gray-800">
                             <span class="py-2"><b>File path: </b>{{ $found['path'] }}</span>
                         </div>
                         <div x-show="open">

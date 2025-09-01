@@ -1,20 +1,20 @@
 <div>
-    <div class="container px-3 mx-auto py-7">
+    <div class="container mx-auto">
         <div class="grid grid-cols-1 gap-5 mb-14">
             <div>
-                <label class="block mb-3">Tabelle</label>
-                <select size="1" wire:model.live.debounce.500ms="table" wire:change='getTable($event.target.value)'
-                    class="px-5 py-2 bg-gray-100 rounded-md">
+                <x:miniHelper::form.lable>Table</x:miniHelper::form.lable>
+                <x:miniHelper::form.select size="1" wire:model.live.debounce.500ms="table"
+                    wire:change='getTable($event.target.value)'>
                     <option value=""></option>
                     @foreach ($table_list as $value)
                         <option value="{{ $value }}">{{ $value }}</option>
                     @endforeach
-                </select>
+                </x:miniHelper::form.select>
             </div>
             <div class="flex items-end gap-5">
                 <div class="w-full">
-                    <label class="block mb-3">API URL</label>
-                    <input type="text" wire:model.live='url' class="w-full px-5 py-2 bg-gray-100 rounded-md" />
+                    <x:miniHelper::form.lable>API URL</x:miniHelper::form.lable>
+                    <x:miniHelper::form.input type="text" wire:model.live='url' />
                 </div>
 
                 @if ($url)
@@ -33,8 +33,8 @@
 
         <div>
             {{-- @if (session()->has('save'))
-                <div class="p-5 text-white bg-green-500 ">{{ session('save') }}</div>
-            @endif --}}
+                    <div class="p-5 text-white bg-green-500 ">{{ session('save') }}</div>
+                @endif --}}
 
             @if (!empty($stub))
                 <div class="relative">
@@ -71,11 +71,12 @@
         </div>
 
         {{-- <div>
-            @php
-                print '<pre>';
-                print_r($database);
-                print '</pre>';
-            @endphp
-        </div> --}}
+                @php
+                    print '<pre>';
+                    print_r($database);
+                    print '</pre>';
+                @endphp
+            </div> --}}
     </div>
+
 </div>

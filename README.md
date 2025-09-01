@@ -14,6 +14,9 @@
 - [x] create sitemap file from all public routes
 - [x] show all register commands
 - [ ] job liste with run job
+- [ ] get .env
+- [ ] get config files
+- [ ] create model from database table
 
 
 

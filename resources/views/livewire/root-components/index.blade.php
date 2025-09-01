@@ -1,18 +1,16 @@
 <div>
-    <div class="container px-5 mx-auto py-14">
+    <div class="container mx-auto">
         <h1 class="text-3xl font-bold text-teal-500">Icons Liste</h1>
 
         <div class="flex items-end gap-5 mt-7">
 
             <div class="w-36">
-                <label for="" class="text-slate-700">Package Prefix:</label>
-                <input type="text" wire:model.live="prefix" class="inline-block w-full px-3 py-1 bg-white rounded-lg"
-                    placeholder="core::" />
+                <x:miniHelper::form.lable>Package Prefix:</x:miniHelper::form.lable>
+                <x:miniHelper::form.input type="text" wire:model.live='prefix' placeholder="core::" />
             </div>
             <div class="w-full">
-                <label class="text-slate-700">Path eingeben:</label>
-                <input type="text" wire:model.live="path" class="inline-block w-full px-3 py-1 bg-white rounded-lg"
-                    placeholder="{{ $path }}" />
+                <x:miniHelper::form.lable>Path:</x:miniHelper::form.lable>
+                <x:miniHelper::form.input type="text" wire:model.live='path' placeholder="{{ $path }}" />
             </div>
 
             <button type="button" @click.prevent="$wire.scanIconPath()"

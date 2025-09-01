@@ -1,5 +1,5 @@
 <div>
-    <div class="container px-3 mx-auto my-14">
+    <div class="container mx-auto">
 
         <table class="w-full bg-white border border-collapse">
             <tr class="sticky top-0 text-sm font-bold text-white uppercase bg-gray-600">

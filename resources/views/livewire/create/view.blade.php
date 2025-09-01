@@ -1,14 +1,14 @@
 <div>
-    <div class="container px-3 mx-auto py-7">
+    <div class="container mx-auto">
         <div class="mb-14">
-            <label class="block mb-3">Tabelle</label>
-            <select size="1" wire:model.live.debounce.500ms="table" wire:change='getTable($event.target.value)'
-                class="px-5 py-2 bg-gray-100 rounded-md">
+            <x:miniHelper::form.lable>Table</x:miniHelper::form.lable>
+            <x:miniHelper::form.select size="1" wire:model.live.debounce.500ms="table"
+                wire:change='getTable($event.target.value)' class="px-5 py-2 bg-gray-100 rounded-md">
                 <option value=""></option>
                 @foreach ($table_list as $value)
                     <option value="{{ $value }}">{{ $value }}</option>
                 @endforeach
-            </select>
+            </x:miniHelper::form.select>
         </div>
 
         <div>
@@ -27,5 +27,4 @@
         </div>
 
     </div>
-
 </div>
