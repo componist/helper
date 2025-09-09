@@ -30,6 +30,10 @@ if (env('APP_DEBUG') === true) {
             Route::get('routes', \Componist\Helper\Livewire\Test\Routes::class)->name('routes');
         });
 
+        Route::prefix('setting')->name('setting.')->group(function () {
+            Route::get('env', \Componist\Helper\Livewire\Setting\EnvFile::class)->name('env');
+        });
+
         Route::view('grug', 'miniHelper::page.grud')->name('grud');
         Route::view('rest-api', 'miniHelper::page.rest-api')->name('rest-api');
         Route::view('pest-exampels', 'miniHelper::page.pest-exampels')->name('pest-exampels');

@@ -12,7 +12,7 @@
                 <tbody class="text-gray-500">
                     @foreach ($routeCollection as $value)
                         <tr class="hover:bg-gray-100 hover:text-gray-900">
-                            <td class="px-3 py-2 font-bold border border-collapse">
+                            <td class="px-3 py-2 font-bold text-center border border-collapse">
                                 @switch($value->methods()[0])
                                     @case('GET')
                                         <span class="text-green-500">GET</span>

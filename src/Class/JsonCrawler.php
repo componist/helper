@@ -94,11 +94,27 @@ class JsonCrawler
                     if ($normalized && ! $this->urlExists($normalized, $data)) {
                         $host = parse_url($normalized, PHP_URL_HOST);
 
+                        $status_code = null;
+                        $visited = false;
+                        $can_visit = $host === $this->baseDomain;
+
+                        if(str_contains($normalized, 'tel:')){
+                            $visited = false;
+                            $status_code = 'tel';
+                            $can_visit = false;
+                        }
+
+                        if(str_contains($normalized, 'mailto:')){
+                            $visited = false;
+                            $status_code = 'mail';
+                            $can_visit = false;
+                        }
+
                         $data['urls'][] = [
                             'url' => $normalized,
-                            'visited' => false,
-                            'status_code' => null,
-                            'can_visit' => $host === $this->baseDomain,
+                            'visited' => $visited,
+                            'status_code' => $status_code,
+                            'can_visit' => $can_visit,
                         ];
                     }
                 });

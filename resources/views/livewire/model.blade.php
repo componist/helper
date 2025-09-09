@@ -12,13 +12,21 @@
 
         </div>
 
+        <div>
+            @if ($table && $model && $model['existsModel'] === false)
+                <button type="button" wire:click="createModelFile"
+                    class="px-3 py-1 text-white bg-teal-500 rounded-md hover:bg-teal-600">Create new
+                    Model</button>
+            @endif
+        </div>
+
         <div class="grid grid-cols-1 gap-5 mt-14">
 
             @if (isset($fields) && count($fields) >= 1)
-                <div class="p-5 bg-gray-100 rounded-md shadow-sm">
+                <div>
                     <h2 class="mb-3 font-bold">Protected $fillable</h2>
-
-                    <pre data-enlighter-language="php">protected $fillable = [
+                    <x:miniHelper::block>
+                        <pre data-enlighter-language="php">protected $fillable = [
 @php
     foreach ($fields as $field) {
         if ($field['Field'] != 'id') {
@@ -26,12 +34,13 @@
         }
     }
 @endphp];</pre>
+                    </x:miniHelper::block>
                 </div>
 
-                <div class="p-5 bg-gray-100 rounded-md shadow-sm">
+                <div>
                     <h2 class="mb-3 font-bold">Protected $casts</h2>
-
-                    <pre data-enlighter-language="php">/**
+                    <x:miniHelper::block>
+                        <pre data-enlighter-language="php">/**
 * The attributes that should be cast to native types.
 *
 * @var array &lt;string, string&gt;
@@ -71,6 +80,7 @@ protected $casts = [
         echo $string . "\n";
     }
 @endphp];</pre>
+                    </x:miniHelper::block>
                 </div>
             @endif
         </div>

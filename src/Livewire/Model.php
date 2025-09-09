@@ -2,9 +2,10 @@
 
 namespace Componist\Helper\Livewire;
 
-use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class Model extends Component
 {
@@ -16,6 +17,12 @@ class Model extends Component
     /** @var array<mixed> */
     public array $fields = [];
 
+    public string $stub = '';
+
+    public array $model = [];
+
+    public string $fillable = '';
+
     public function mount(): void
     {
         $this->getTables();
@@ -23,6 +30,14 @@ class Model extends Component
 
     public function render(): View
     {
+        if($this->table){
+            $this->model = $this->tableSecelted();
+            $this->fillable = $this->createFillableArrayContent();
+        }else{
+            $this->model = [];
+            $this->fillable = '';
+        }
+
         return view('miniHelper::livewire.model')->layout('miniHelper::layouts.package');
     }
 
@@ -43,10 +58,70 @@ class Model extends Component
         }
     }
 
+    public function createModelFile()
+    {
+        $this->getStubContent();
+        dump($this->model);
+
+        $this->stub = str_replace('[modelClass]', $this->model['modelClass'], $this->stub);
+        $this->stub = str_replace('[fillable]', $this->fillable, $this->stub);
+
+        dd($this->stub);
+        // table wurde ausgewählt
+        // model file wurde nicht gefunden, kann erstellt werden
+        
+
+    }
+
     private function getTables(): void
     {
         foreach (DB::select('SHOW TABLES') as $value) {
+            
             $this->table_list[] = implode(',', json_decode(json_encode($value), true));
         }
     }
+
+    private function tableSecelted(): array
+    {
+        $modelClass = Str::pascal(Str::singular($this->table));
+        $existsModel = false;
+
+        if(file_exists(app_path('Models/'.$modelClass.'.php'))){
+            $existsModel = true;
+        }
+
+        return [
+            'modelClass' => $modelClass,
+            'existsModel' => $existsModel
+        ];
+    }
+
+    private function getStubContent(): void
+    {
+        $this->stub = file_get_contents(__DIR__.'../../stub/create_model.stub');
+    }
+
+    private function createFillableArrayContent(){
+        $string = 'protected $fillable = [';
+
+        $count = 0;
+
+        foreach($this->fields as $key => $field){
+
+            $count++;
+
+            if($field['Field'] != 'id'){
+
+                if(count($this->fields) == $count){
+                    $string .= '"'.$field['Field'].'"';
+                }else{
+                    $string .= '"'.$field['Field'].'",';
+                }
+                
+            }
+        }
+        $string .= '];';
+
+        return $string;
+    } 
 }
