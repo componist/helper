@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\File;
 class ClearStoragePublic extends Command
 {
     protected $signature = 'componist:storage-public-clear';
+
     protected $description = 'Löscht alle Dateien und Ordner im storage/app/public-Verzeichnis rekursiv';
 
     public function handle()

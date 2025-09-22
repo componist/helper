@@ -22,9 +22,9 @@ if (env('APP_DEBUG') === true) {
 
         Route::get('crawler/route', \Componist\Helper\Livewire\Crawler\RoutesJson::class)->name('crawler.route.json');
 
-        Route::get('artisan/list',\Componist\Helper\Livewire\Artisan\Liste::class)->name('artisan.list');
+        Route::get('artisan/list', \Componist\Helper\Livewire\Artisan\Liste::class)->name('artisan.list');
 
-        Route::get('job/liste',\Componist\Helper\Livewire\Jobs\Liste::class)->name('job.liste');
+        Route::get('job/liste', \Componist\Helper\Livewire\Jobs\Liste::class)->name('job.liste');
 
         Route::prefix('test')->name('test.')->group(function () {
             Route::get('routes', \Componist\Helper\Livewire\Test\Routes::class)->name('routes');

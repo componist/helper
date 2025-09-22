@@ -98,13 +98,13 @@ class JsonCrawler
                         $visited = false;
                         $can_visit = $host === $this->baseDomain;
 
-                        if(str_contains($normalized, 'tel:')){
+                        if (str_contains($normalized, 'tel:')) {
                             $visited = false;
                             $status_code = 'tel';
                             $can_visit = false;
                         }
 
-                        if(str_contains($normalized, 'mailto:')){
+                        if (str_contains($normalized, 'mailto:')) {
                             $visited = false;
                             $status_code = 'mail';
                             $can_visit = false;

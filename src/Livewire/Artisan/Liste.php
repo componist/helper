@@ -2,8 +2,8 @@
 
 namespace Componist\Helper\Livewire\Artisan;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\Artisan;
+use Livewire\Component;
 
 class Liste extends Component
 {
@@ -12,24 +12,23 @@ class Liste extends Component
         $commandListe = [];
         $commands = Artisan::all();
 
-        foreach ($commands as $name => $command)
-        {
-            $group = explode(':',$name);
+        foreach ($commands as $name => $command) {
+            $group = explode(':', $name);
 
             $commandListe[] = [
                 'group' => $group[0],
                 'name' => 'php artisan '.$name,
-                'description' => $command->getDescription()
+                'description' => $command->getDescription(),
             ];
         }
 
         $commandListe = collect($commandListe)
-        ->groupBy('group')
-        ->toArray();
+            ->groupBy('group')
+            ->toArray();
 
         $content = $commandListe;
         // dump($content);
-        
-        return view('miniHelper::livewire.artisan.liste',compact('content'))->layout('miniHelper::layouts.package');
+
+        return view('miniHelper::livewire.artisan.liste', compact('content'))->layout('miniHelper::layouts.package');
     }
 }

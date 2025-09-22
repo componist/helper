@@ -2,14 +2,14 @@
 
 namespace Componist\Helper\Livewire\Setting;
 
-use Livewire\Component;
 use Illuminate\Support\Facades\File;
+use Livewire\Component;
 
 class EnvFile extends Component
 {
     public string $path = '';
-    public string $content = '';
 
+    public string $content = '';
 
     public function mount()
     {
@@ -19,7 +19,7 @@ class EnvFile extends Component
             $this->content = File::get($this->path);
         }
     }
-    
+
     public function render()
     {
         return view('miniHelper::livewire.setting.env-file')->layout('miniHelper::layouts.package');

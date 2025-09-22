@@ -14,9 +14,9 @@
                             <tbody class="divide-y divide-gray-200 ">
                                 @foreach ($value['fields'] as $field)
                                     <tr>
-                                        <td class="py-2 text-gray-600">{{ $field['Field'] }}</td>
-                                        <td class="py-2 text-gray-400">{{ $field['Type'] }}</td>
-                                        <td class="py-2 text-gray-600">
+                                        <td class="py-2 text-slate-600">{{ $field['Field'] }}</td>
+                                        <td class="py-2 text-slate-400">{{ $field['Type'] }}</td>
+                                        <td class="py-2 text-slate-600">
                                             @if ($field['Null'] === 'YES')
                                                 <span class="font-bold ">N</span>
                                             @else

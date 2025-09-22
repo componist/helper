@@ -4,7 +4,7 @@
         <div>
             <x:miniHelper::form.lable>Table</x:miniHelper::form.lable>
             <x:miniHelper::form.select size="1" wire:model.live.debounce.500ms="table"
-                wire:change='getTable($event.target.value)' class="px-5 py-2 bg-gray-100 rounded-md">
+                wire:change='getTable($event.target.value)' class="px-5 py-2 bg-slate-100 rounded-md">
                 <option value=""></option>
                 @foreach ($table_list as $value)
                     <option value="{{ $value }}">{{ $value }}</option>
@@ -16,7 +16,7 @@
         <div class="grid grid-cols-1 gap-5 mt-14">
 
             @if (count($validator) > 0)
-                <div class="relative p-5 bg-gray-100 rounded-md shadow-sm">
+                <div class="relative p-5 bg-slate-100 rounded-md shadow-sm">
                     <h2 class="mb-3 font-bold">Request $validated</h2>
 
                     <pre data-enlighter-language="php">$validated = $request->validate([

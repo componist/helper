@@ -3,15 +3,15 @@
         <div class="container px-3 mx-auto my-14">
 
             <table class="w-full bg-white border border-collapse">
-                <tr class="sticky top-0 text-sm font-bold text-white uppercase bg-gray-600">
+                <tr class="sticky top-0 text-sm font-bold text-white uppercase bg-slate-600">
                     <td class="px-3 py-2 border border-collapse text-nowrap">HTTP Method</td>
                     <td class="px-3 py-2 border border-collapse text-nowrap">Route</td>
                     <td class="px-3 py-2 border border-collapse text-nowrap">Name</td>
                     <td class="px-3 py-2 border border-collapse text-nowrap">Class Path</td>
                 </tr>
-                <tbody class="text-gray-500">
+                <tbody class="text-slate-500">
                     @foreach ($routeCollection as $value)
-                        <tr class="hover:bg-gray-100 hover:text-gray-900">
+                        <tr class="hover:bg-slate-100 hover:text-slate-900">
                             <td class="px-3 py-2 font-bold text-center border border-collapse">
                                 @switch($value->methods()[0])
                                     @case('GET')

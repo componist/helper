@@ -94,7 +94,7 @@
                 <ul class="grid grid-cols-1 gap-3">
                     {{-- <li class="my-3" x-data="{ open: false }">
                         <button x-on:click="open = ! open"
-                            class="flex items-center justify-between w-full text-gray-600 transition-all duration-200 ease-linear hover:text-teal-500"
+                            class="flex items-center justify-between w-full text-slate-600 transition-all duration-200 ease-linear hover:text-teal-500"
                             href="">
                             E-Commerse<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -104,17 +104,17 @@
                         </button>
                         <ul x-show="open" x-transition class="px-5 py-3 my-3 bg-teal-500 rounded-md shadow">
                             <li class="my-3">
-                                <a class="text-gray-200 transition-all duration-200 ease-linear hover:text-white"
+                                <a class="text-slate-200 transition-all duration-200 ease-linear hover:text-white"
                                     href="">Link</a>
                             </li>
                             <li class="my-3">
-                                <a class="text-gray-200 transition-all duration-200 ease-linear hover:text-white"
+                                <a class="text-slate-200 transition-all duration-200 ease-linear hover:text-white"
                                     href="">Link</a>
                             </li>
                         </ul>
                     </li> --}}
                     {{-- <li class="my-3">
-                        <a class="text-gray-600 transition-all duration-200 ease-linear hover:text-teal-500"
+                        <a class="text-slate-600 transition-all duration-200 ease-linear hover:text-teal-500"
                             href="">Finance</a>
                     </li> --}}
                     <li>
@@ -221,7 +221,7 @@
             </nav>
         </div>
         <div :class="open ? 'left-72' : 'left-0'"
-            class="relative w-full overflow-y-auto transition-all duration-300 ease-linear bg-gray-100 dark:bg-slate-900">
+            class="relative w-full overflow-y-auto transition-all duration-300 ease-linear bg-slate-100 dark:bg-slate-900">
             <div class="px-5 border-b border-gray-200 py-7">
                 <div class="flex items-center justify-between gap-5">
                     <button x-on:click="open = ! open" type="button"
@@ -256,10 +256,10 @@
 
             <div class="px-5 py-7">
                 <!--start content-->
-                {{-- <h2 class="mb-3 text-4xl font-extrabold leading-none text-gray-900 md:text-5xl xl:text-6xl">
+                {{-- <h2 class="mb-3 text-4xl font-extrabold leading-none text-slate-900 md:text-5xl xl:text-6xl">
                     Lorem ipsum dolor sit amet.
                 </h2>
-                <p class="max-w-3xl text-base text-gray-600 xl:text-xl">
+                <p class="max-w-3xl text-base text-slate-600 xl:text-xl">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero, atque asperiores non
                     accusamus porro dolor. Omnis, obcaecati. Et est, architecto maiores, beatae sit sed
                     ullam cumque ea blanditiis consequatur sequi.

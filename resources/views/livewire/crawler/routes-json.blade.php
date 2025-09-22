@@ -58,14 +58,14 @@
 
                     <div class="text-blue-500 animate-pulse">Crawler läuft...</div>
                 @else
-                    {{-- <div class="text-gray-500">Crawler gestoppt</div> --}}
+                    {{-- <div class="text-slate-500">Crawler gestoppt</div> --}}
                 @endif
             </div>
 
             <x:miniHelper::block>
                 <table class="w-full">
                     <thead>
-                        <tr class="bg-gray-200">
+                        <tr class="bg-slate-200">
                             <th class="px-5 py-2 text-left">URL</th>
                             <th class="px-5 py-2 text-center">Status</th>
                             <th class="px-5 py-2 text-center">Besucht</th>

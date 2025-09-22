@@ -38,7 +38,7 @@
 
             @if (!empty($stub))
                 <div class="relative">
-                    <div class="p-5 text-gray-700 bg-gray-100 rounded-lg">
+                    <div class="p-5 text-slate-700 bg-slate-100 rounded-lg">
                         <pre><code>{{ $stub }}</code></pre>
                     </div>
 

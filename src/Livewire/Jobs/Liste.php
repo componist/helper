@@ -2,9 +2,9 @@
 
 namespace Componist\Helper\Livewire\Jobs;
 
-use Livewire\Component;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Livewire\Component;
 
 class Liste extends Component
 {
@@ -27,8 +27,8 @@ class Liste extends Component
                     $namespace = $namespaceMatch[1];
                     $class = $classMatch[1];
                     $jobClasses[] = [
-                        'namespace' => $namespace . '\\' . $class,
-                        'class' => $class
+                        'namespace' => $namespace.'\\'.$class,
+                        'class' => $class,
                     ];
                 }
             }
@@ -41,13 +41,11 @@ class Liste extends Component
         return view('miniHelper::livewire.jobs.liste', compact('content'))->layout('miniHelper::layouts.package');
     }
 
-
-
     public function runJob(array $job)
     {
         // $jobClass = 'App\\Jobs\\MyDynamicJob';
         $jobClass = $job['namespace'];
 
-        dispatch(new $jobClass());
+        dispatch(new $jobClass);
     }
 }

@@ -2,10 +2,10 @@
 
 namespace Componist\Helper\Livewire;
 
-use Livewire\Component;
-use Illuminate\View\View;
-use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\View\View;
+use Livewire\Component;
 
 class Model extends Component
 {
@@ -30,10 +30,10 @@ class Model extends Component
 
     public function render(): View
     {
-        if($this->table){
+        if ($this->table) {
             $this->model = $this->tableSecelted();
             $this->fillable = $this->createFillableArrayContent();
-        }else{
+        } else {
             $this->model = [];
             $this->fillable = '';
         }
@@ -69,14 +69,13 @@ class Model extends Component
         dd($this->stub);
         // table wurde ausgewählt
         // model file wurde nicht gefunden, kann erstellt werden
-        
 
     }
 
     private function getTables(): void
     {
         foreach (DB::select('SHOW TABLES') as $value) {
-            
+
             $this->table_list[] = implode(',', json_decode(json_encode($value), true));
         }
     }
@@ -86,13 +85,13 @@ class Model extends Component
         $modelClass = Str::pascal(Str::singular($this->table));
         $existsModel = false;
 
-        if(file_exists(app_path('Models/'.$modelClass.'.php'))){
+        if (file_exists(app_path('Models/'.$modelClass.'.php'))) {
             $existsModel = true;
         }
 
         return [
             'modelClass' => $modelClass,
-            'existsModel' => $existsModel
+            'existsModel' => $existsModel,
         ];
     }
 
@@ -101,27 +100,28 @@ class Model extends Component
         $this->stub = file_get_contents(__DIR__.'../../stub/create_model.stub');
     }
 
-    private function createFillableArrayContent(){
+    private function createFillableArrayContent()
+    {
         $string = 'protected $fillable = [';
 
         $count = 0;
 
-        foreach($this->fields as $key => $field){
+        foreach ($this->fields as $key => $field) {
 
             $count++;
 
-            if($field['Field'] != 'id'){
+            if ($field['Field'] != 'id') {
 
-                if(count($this->fields) == $count){
+                if (count($this->fields) == $count) {
                     $string .= '"'.$field['Field'].'"';
-                }else{
+                } else {
                     $string .= '"'.$field['Field'].'",';
                 }
-                
+
             }
         }
         $string .= '];';
 
         return $string;
-    } 
+    }
 }
