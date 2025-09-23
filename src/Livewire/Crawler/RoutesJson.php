@@ -24,6 +24,7 @@ class RoutesJson extends Component
     {
         $crawler = new JsonCrawler; // ohne baseUrl, sonst überschreibt er!
         $crawler->baseDomain = parse_url($this->baseUrl, PHP_URL_HOST);
+
         $hasNext = $crawler->crawlNext();
 
         if (! $hasNext) {
@@ -67,18 +68,18 @@ class RoutesJson extends Component
 
         $xml = new \SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>
 <urlset />');
-        $xml->addAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
+$xml->addAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
 
-        foreach ($urls as $url) {
-            $urlNode = $xml->addChild('url');
-            $urlNode->addChild('loc', htmlspecialchars($url['url']));
-            $urlNode->addChild('lastmod', date('Y-m-d'));
-            $urlNode->addChild('changefreq', 'weekly');
-            $urlNode->addChild('priority', '0.8');
-        }
+foreach ($urls as $url) {
+$urlNode = $xml->addChild('url');
+$urlNode->addChild('loc', htmlspecialchars($url['url']));
+$urlNode->addChild('lastmod', date('Y-m-d'));
+$urlNode->addChild('changefreq', 'weekly');
+$urlNode->addChild('priority', '0.8');
+}
 
-        $path = public_path('sitemap.xml');
-        $xml->asXML($path);
+$path = public_path('sitemap.xml');
+$xml->asXML($path);
 
-    }
+}
 }

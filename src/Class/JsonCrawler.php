@@ -3,6 +3,7 @@
 namespace Componist\Helper\Class;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Cookie\CookieJar;
 use Symfony\Component\DomCrawler\Crawler;
 
 class JsonCrawler
@@ -17,10 +18,19 @@ class JsonCrawler
 
     public function __construct(?string $baseUrl = null, ?string $file = null)
     {
+        //dd(request()->cookies->all());
+
+        // dd(request()->cookies->all(), parse_url(env('APP_URL'),PHP_URL_HOST));
+
         $this->client = new Client([
-            'timeout' => 10,
+            'timeout' => 60,
+            'connect_timeout' => 30,
             'allow_redirects' => true,
             'verify' => false,
+            //'cookies' =>  CookieJar::fromArray(request()->cookies->all(), parse_url(env('APP_URL'),PHP_URL_HOST)),
+            // 'headers' => [
+            //     'User-Agent' => 'ComponistCrawler/1.0 (+'.env('APP_URL').')'
+            // ],
         ]);
 
         $this->file = $file ?? storage_path('app/crawler.json');
@@ -76,7 +86,9 @@ class JsonCrawler
 
         try {
             if ($entry['can_visit']) {
-                $response = $this->client->get($urlToFetch);
+                $response = $this->client->get($urlToFetch,[
+                    'timeout' => 120
+                ]);
                 $status = $response->getStatusCode();
                 $html = (string) $response->getBody();
 
@@ -110,6 +122,12 @@ class JsonCrawler
                             $can_visit = false;
                         }
 
+                        if (str_contains($normalized, '#')) {
+                            $visited = false;
+                            $status_code = '#';
+                            $can_visit = false;
+                        }
+
                         $data['urls'][] = [
                             'url' => $normalized,
                             'visited' => $visited,
@@ -121,7 +139,10 @@ class JsonCrawler
             }
         } catch (\GuzzleHttp\Exception\RequestException $e) {
             $entry['visited'] = true;
-            $entry['status_code'] = $e->hasResponse() ? $e->getResponse()->getStatusCode() : null;
+            $entry['status_code'] = $e->hasResponse() ? $e->getResponse()->getStatusCode() : 'timeout';
+
+            // Optional: Loggen oder ausgeben
+            error_log('Fehler beim Abrufen: ' . $entry['url'] . ' - ' . $e->getMessage());
         }
 
         $this->saveJson($data);
