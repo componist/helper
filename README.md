@@ -16,7 +16,7 @@
 - [ ] job liste with run job
 - [ ] get .env
 - [ ] get config files
-- [ ] create model from database table
+- [ ] show logs
 
 
 
