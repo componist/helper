@@ -58,8 +58,8 @@ class Routes extends Component
         return view('miniHelper::livewire.test.routes')->layout('miniHelper::layouts.package');
     }
 
-    private function testRouteReturn(string $route): Response
-    {
-        return Http::get($route);
-    }
+    // private function testRouteReturn(string $route): Response
+    // {
+    //     return Http::get($route);
+    // }
 }

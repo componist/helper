@@ -96,7 +96,7 @@ class JsonCrawler
                 $entry['status_code'] = $status;
 
                 $crawler = new Crawler($html);
-                $crawler->filter('a')->each(function (Crawler $node) use (&$data) {
+                $crawler->filter('a')->each(function (Crawler $node) use (&$data): void {
                     $href = $node->attr('href');
                     if (! $href) {
                         return;

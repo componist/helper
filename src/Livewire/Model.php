@@ -106,7 +106,7 @@ class Model extends Component
 
         $count = 0;
 
-        foreach ($this->fields as $key => $field) {
+        foreach ($this->fields as $field) {
 
             $count++;
 

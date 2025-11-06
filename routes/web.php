@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 if (env('APP_DEBUG') === true) {
     Route::
     // middleware(['auth','verified'])->
-    prefix('helper')->name('componist.mini-helper.')->group(function () {
+    prefix('helper')->name('componist.mini-helper.')->group(function (): void {
         Route::view('/', 'miniHelper::page.helper')->name('index');
         Route::get('/mode', \Componist\Helper\Livewire\Model::class)->name('model');
         Route::get('/validation', \Componist\Helper\Livewire\Validation::class)->name('validation');
@@ -15,7 +15,7 @@ if (env('APP_DEBUG') === true) {
 
         Route::get('icons', \Componist\Helper\Livewire\RootComponents\Index::class)->name('root.icons');
 
-        Route::prefix('database')->name('database.')->group(function () {
+        Route::prefix('database')->name('database.')->group(function (): void {
             Route::get('tools', \Componist\Helper\Livewire\Database\Tools::class)->name('tools');
             Route::get('schema', \Componist\Helper\Livewire\Database\Schema::class)->name('schema');
         });
@@ -26,11 +26,11 @@ if (env('APP_DEBUG') === true) {
 
         Route::get('job/liste', \Componist\Helper\Livewire\Jobs\Liste::class)->name('job.liste');
 
-        Route::prefix('test')->name('test.')->group(function () {
+        Route::prefix('test')->name('test.')->group(function (): void {
             Route::get('routes', \Componist\Helper\Livewire\Test\Routes::class)->name('routes');
         });
 
-        Route::prefix('setting')->name('setting.')->group(function () {
+        Route::prefix('setting')->name('setting.')->group(function (): void {
             Route::get('env', \Componist\Helper\Livewire\Setting\EnvFile::class)->name('env');
         });
 

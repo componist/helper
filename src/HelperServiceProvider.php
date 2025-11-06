@@ -21,7 +21,7 @@ class HelperServiceProvider extends ServiceProvider
             ClearStoragePublic::class,
         ]);
 
-        Route::group(['middleware' => ['web']], function () {
+        Route::group(['middleware' => ['web']], function (): void {
             $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         });
 
