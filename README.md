@@ -8,7 +8,7 @@
 - [ ] create blueprint yaml from database
 - [ ] create Laravel Modal from database schema
 - [ ] edit database schema / create / delete/ reorder columns
-- [ ] routing testing
+- [x] routing testing
 - [x] clear or delete database
 - [ ] create robots.txt file
 - [x] create sitemap file from all public routes
