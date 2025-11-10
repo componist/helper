@@ -1,24 +1,27 @@
 <div>
     <div class="container mx-auto">
-        <div>
-            <x:miniHelper::form.lable>Table</x:miniHelper::form.lable>
-            <x:miniHelper::form.select size="1" wire:model.live.debounce.500ms="table"
-                wire:change='getTable($event.target.value)'>
-                <option value=""></option>
-                @foreach ($table_list as $value)
-                    <option value="{{ $value }}">{{ $value }}</option>
-                @endforeach
-            </x:miniHelper::form.select>
-
+        <div class="flex items-end justify-between gap-5">
+            <div class="w-full">
+                <x:miniHelper::form.lable>Table</x:miniHelper::form.lable>
+                <x:miniHelper::form.select size="1" wire:model.live.debounce.500ms="table"
+                    wire:change='getTable($event.target.value)'>
+                    <option value=""></option>
+                    @foreach ($table_list as $value)
+                        <option value="{{ $value }}">{{ $value }}</option>
+                    @endforeach
+                </x:miniHelper::form.select>
+    
+            </div>
+    
+            <div class="flex items-end">
+                @if ($table && $model && $model['existsModel'] === false)
+                    <button type="button" wire:click="createModelFile"
+                        class="px-5 py-2 text-white bg-teal-500 rounded-md hover:bg-teal-600 text-nowrap m-[2px]">Create new
+                        Model</button>
+                @endif
+            </div>
         </div>
-
-        <div>
-            @if ($table && $model && $model['existsModel'] === false)
-                <button type="button" wire:click="createModelFile"
-                    class="px-3 py-1 text-white bg-teal-500 rounded-md hover:bg-teal-600">Create new
-                    Model</button>
-            @endif
-        </div>
+        
 
         <div class="grid grid-cols-1 gap-5 mt-14">
 

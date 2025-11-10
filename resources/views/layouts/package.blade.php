@@ -213,8 +213,12 @@
                     <p class="mb-3 text-base text-teal-500 uppercase mt-7">Setting</p>
                     <hr class="border-gray-200" />
                     <li>
-                        <a class="transition-all duration-200 ease-linear  hover:text-teal-500 {{ request()->routeIs('componist.mini-helper.crawler.route.json') ? 'text-teal-500' : 'text-slate-600' }}"
+                        <a class="transition-all duration-200 ease-linear  hover:text-teal-500 {{ request()->routeIs('componist.mini-helper.setting.env') ? 'text-teal-500' : 'text-slate-600' }}"
                             href="{{ route('componist.mini-helper.setting.env') }}">.ENV File</a>
+                    </li>
+                    <li>
+                        <a class="transition-all duration-200 ease-linear  hover:text-teal-500 {{ request()->routeIs('componist.mini-helper.setting.log') ? 'text-teal-500' : 'text-slate-600' }}"
+                            href="{{ route('componist.mini-helper.setting.log') }}">Laravel Log File</a>
                     </li>
 
                 </ul>

@@ -1,6 +1,6 @@
 # mini Helper
 
-- [x] show Modal  fillable array , casts array
+- [x] show Modal fillable array , casts array
 - [x] show Validation settings from database  table
 - [x] create Migration from database table
 - [x] get database schema
@@ -14,9 +14,9 @@
 - [x] create sitemap file from all public routes
 - [x] show all register commands
 - [ ] job liste with run job
-- [ ] get .env
+- [x] get .env
 - [ ] get config files
-- [ ] show logs
+- [x] show logs
 
 
 

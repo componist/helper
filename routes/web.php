@@ -32,6 +32,7 @@ if (env('APP_DEBUG') === true) {
 
         Route::prefix('setting')->name('setting.')->group(function (): void {
             Route::get('env', \Componist\Helper\Livewire\Setting\EnvFile::class)->name('env');
+            Route::get('log', \Componist\Helper\Livewire\Setting\LogFile::class)->name('log');
         });
 
         Route::view('grug', 'miniHelper::page.grud')->name('grud');

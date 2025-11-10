@@ -40,6 +40,7 @@ return [
         'artisan.liste' => \Componist\Helper\Livewire\Artisan\Liste::class,
         'jobs.liste' => \Componist\Helper\Livewire\Jobs\Liste::class,
         'setting.env-file' => \Componist\Helper\Livewire\Setting\EnvFile::class,
+        'setting.log-file' => \Componist\Helper\Livewire\Setting\LogFile::class,
     ],
 
     /*
