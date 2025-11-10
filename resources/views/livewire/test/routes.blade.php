@@ -55,7 +55,7 @@
                                     $testableCount = $testableRoutes->count();
                                 @endphp
                                 @if ($testableCount > 0)
-                                    <div x-show="testingGroup === '{{ $groupName }}'" class="flex flex-col gap-2">
+                                    <div x-cloak x-show="testingGroup === '{{ $groupName }}'" class="flex flex-col gap-2">
                                         <div class="flex items-center gap-3">
                                             <div class="text-xs text-gray-600">
                                                 (<span x-text="getGroupTestedCount('{{ $groupName }}')"></span>/{{ $testableCount }})
@@ -66,7 +66,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div x-show="testingGroup !== '{{ $groupName }}'">
+                                    <div x-cloak x-show="testingGroup !== '{{ $groupName }}'">
                                         <button @click="testGroupRoutes('{{ $groupName }}')" 
                                             :disabled="isTestingAll || (testingGroup !== null && testingGroup !== '{{ $groupName }}')"
                                             class="px-3 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
